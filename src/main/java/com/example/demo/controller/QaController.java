@@ -34,7 +34,6 @@ public class QaController {
 	
 	@PostMapping("newQuestion")
 	public void newQuestion(@RequestBody Question question) {
-//		question.setCreatedAt(Timestamp.from(Instant.now()).toString());
 		questionService.createQuestion(question);
 	}
 	
@@ -44,7 +43,7 @@ public class QaController {
 	}
 	
 	@PostMapping("addAnswer")
-	public void addAnswer(Answer answer) {
+	public void addAnswer(@RequestBody Answer answer) {
 		answerService.addAnswer(answer);
 	}
 

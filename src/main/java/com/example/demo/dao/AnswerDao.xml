@@ -13,11 +13,11 @@
   	<result property="questionId" column="q_id" />
   </resultMap>
   <insert id="createAnswer" parameterType="Answer">
-  	insert into answers(a_body, a_created_at, q_id)
-  	values(#{answerBody}, CURRENT_TIMESTAMP(), #{questionId})
+  	insert into answers(a_body, q_id, a_created_at)
+  	values(#{answerBody}, #{questionId}, CURRENT_TIMESTAMP())
   </insert>
   <select id="getAnswerToQuestion" parameterType="Question" resultMap="answerResultMap">
-  	select * from answer where q_id=#{id}
+  	select * from answers where q_id=#{id}
   </select>
   
 </mapper>
