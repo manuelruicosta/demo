@@ -2,10 +2,18 @@ package com.example.demo.dto;
 
 public class User {
 	
+	private long id;
 	private String userName;
 	private String password;
 	private String email;
 	private String birthdate;
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public String getUserName() {
 		return userName;

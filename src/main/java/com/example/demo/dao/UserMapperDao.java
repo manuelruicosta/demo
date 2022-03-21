@@ -10,9 +10,10 @@ import com.example.demo.dto.User;
 @Mapper
 public interface UserMapperDao {
 	
-	@Select("SELECT * FROM user WHERE user_name = #{userName}")
 	public List<User> getUserFromName(String userName);
 	
-//	public List<User> selectAll();
+	public List<User> selectAll();
+	
+	public void createUser(User user);
 
 }
