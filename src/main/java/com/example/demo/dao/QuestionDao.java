@@ -12,5 +12,5 @@ public interface QuestionDao {
 	public List<Question> selectAll();
 	
 	public void createQuestion(Question question);
-
+	
 }

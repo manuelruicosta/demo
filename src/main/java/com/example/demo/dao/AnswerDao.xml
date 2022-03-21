@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.AnswerDao">
+  <select id="selectAll" resultMap="answerResultMap">
+    select * from answers
+  </select>
+  <resultMap id="answerResultMap" type="Answer">
+  	<id property="id" column="a_id" />
+  	<result property="answerBody" column="a_body" />
+  	<result property="createdAt" column="a_created_at" />
+  	<result property="questionId" column="q_id" />
+  </resultMap>
+  <insert id="createAnswer" parameterType="Answer">
+  	insert into answers(a_body, a_created_at, q_id)
+  	values(#{answerBody}, CURRENT_TIMESTAMP(), #{questionId})
+  </insert>
+  <select id="getAnswerToQuestion" parameterType="Question" resultMap="answerResultMap">
+  	select * from answer where q_id=#{id}
+  </select>
+  
+</mapper>
