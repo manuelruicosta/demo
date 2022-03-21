@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.QuestionDao">
+  <select id="selectAll" resultMap="questionResultMap">
+    select * from questions
+  </select>
+  <resultMap id="questionResultMap" type="Question">
+  	<id property="id" column="q_id" />
+  	<result property="questionBody" column="q_body" />
+  	<result property="createdAt" column="q_created_at" />
+  </resultMap>
+  <insert id="createQuestion" parameterType="Question">
+  	insert into questions(q_body, q_created_at)
+  	values(#{questionBody}, CURRENT_TIMESTAMP())
+  </insert>
+</mapper>
